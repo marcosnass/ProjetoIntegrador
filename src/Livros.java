@@ -6,9 +6,6 @@ public class Livros {
 	private String edit;
 	private String yearPub;
 	
-	//comment
-	//other comment
-	//something
 	
 	public Livros(String t, String i, String a, String e, String y) {
 		setTitle(t);
