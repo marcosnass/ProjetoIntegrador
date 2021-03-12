@@ -1,5 +1,5 @@
 
-public class Livros {
+public class Books {
 	private String title;
 	private String isbn;
 	private String author;
@@ -7,7 +7,7 @@ public class Livros {
 	private String yearPub;
 	
 	
-	public Livros(String t, String i, String a, String e, String y) {
+	public Books(String t, String i, String a, String e, String y) {
 		setTitle(t);
 		setIsbn(i);
 		setAuthor(a);
@@ -15,6 +15,7 @@ public class Livros {
 		setYearPub(y);
 	}
 	
+	//methods special
 	public void setTitle(String t) {
 		this.title = t;
 	}
@@ -55,10 +56,14 @@ public class Livros {
 		return yearPub;
 	}
 	
-	
+	//logical method
 	public void displayBook() {
 		System.out.print("Title: " + this.title + " - Author: " + this.author + "  - Publishing Company: " + this.yearPub);
 	}
-	
+
+	public void includeBookFirst() {}
+	public void includeBookLast() {}
+	public void returnLenght() {}
+
 
 }
