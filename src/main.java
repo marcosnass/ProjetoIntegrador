@@ -1,42 +1,62 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.Collections;
 
 public class main {
 
 	public static void main(String[] args) {
 		
-
-		Books book = new Books();		
-		Books book1 = new Books();
-		Books book2 = new Books();
-		
+		Scanner s = new Scanner(System.in);
 		ArrayList<Books> list = new ArrayList();
+		Books b = new Books();
+	
+		//Books book1 = new Books();
+		//Books book2 = new Books();
 		
-		book.setTitle("A Cabana");
-		book.setAuthor("Zé");
-		book.setEdit("Figures");
-		book.setYearPub("2010");
+		//book1.setTitle("A Casa Blanca");
+		//book1.setAuthor("Pedro de Lara");
+		//book1.setEdit("Story in Comic");
+		//book1.setYearPub("2015");
 		
-		book1.setTitle("A Casa Blanca");
-		book1.setAuthor("Pedro de Lara");
-		book1.setEdit("Story in Comic");
-		book1.setYearPub("2015");
+		//book2.setTitle("Harry Potter");
+		//book2.setAuthor("J.K Rowlling");
+		//book2.setEdit("DisneyChannel");
+		//book2.setYearPub("1998");
 		
-		book2.setTitle("Harry Potter");
-		book2.setAuthor("J.K Rowlling");
-		book2.setEdit("Disney");
-		book2.setYearPub("1998");
+		//list.add(book1);
+		//list.add(book2);
 		
-		list.add(book);
-		list.add(book1);
-		list.add(book2);
+		//System.out.println("Show list of books:");
+		//for (Books i : list) {
+		//	System.out.println(i);
+		//}
+		String r = "";
 		
-		System.out.println("Show list of books:");
+		while (!r.equals("N")){
+			ArrayList<Books> listAux = new ArrayList();
+			System.out.print("Enter the title of book: ");
+			String title = s.nextLine();
+			b.setTitle(title);
+			System.out.print("Now, enter the author of book: ");
+			String author = s.nextLine();
+			b.setAuthor(author);
+			listAux.add(b);
+			list = new ArrayList<Books>(listAux);
+			listAux.clear();
+			
+			System.out.print("Want to continue? [S/N]");
+			r = s.nextLine().toUpperCase();
+			
+		}
+		
 		for (Books i : list) {
 			System.out.println(i);
 		}
 		
-		System.out.println("Total of Books registred in the list: " + list.size());
+		System.out.println();
+		System.out.println("---------------");
+		System.out.println("End program...");
 	
 	    
 	}
