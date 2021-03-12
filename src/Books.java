@@ -7,20 +7,16 @@ public class Books {
 	private String yearPub;
 	
 	
-	public Books(String t, String i, String a, String e, String y) {
-		setTitle(t);
-		setIsbn(i);
-		setAuthor(a);
-		setEdit(e);
-		setYearPub(y);
+	public Books() {
+
 	}
 	
-	//methods special
+	//special methods 
 	public void setTitle(String t) {
 		this.title = t;
 	}
 	
-	public String getTitlte() {
+	public String getTitle() {
 		return title;
 	}
 	
@@ -57,10 +53,13 @@ public class Books {
 	}
 	
 	//logical method
-	public void displayBook() {
-		System.out.print("Title: " + this.title + " - Author: " + this.author + "  - Publishing Company: " + this.yearPub);
-	}
 
+	
+	public String toString() {
+		return "Title: " + this.getTitle() + " - Author: " + this.getAuthor() + "  - Publishing Company: " 
+	+ this.getEdit() + " - Year Publishing: " + this.getYearPub();
+	}
+	
 	public void includeBookFirst() {}
 	public void includeBookLast() {}
 	public void returnLenght() {}
