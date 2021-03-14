@@ -1,8 +1,5 @@
 
-import java.util.ArrayList;
-
 public class Books {
-	ArrayList<Books> list = new ArrayList();
 	private String title;
 	private String isbn;
 	private String author;
@@ -10,9 +7,7 @@ public class Books {
 	private String yearPub;
 	
 	
-	public Books() {
-
-	}
+	public Books() {}
 	
 	//special methods 
 	public void setTitle(String t) {
@@ -62,16 +57,7 @@ public class Books {
 		return "Title: " + this.getTitle() + " - Author: " + this.getAuthor() + "  - Publishing Company: " 
 	+ this.getEdit() + " - Year Publishing: " + this.getYearPub();
 	}
-	
-	public void addBook(Books book) {
-		list.add(book);
-	}
-	public void removeBook(Books book) {
-		list.remove(book);
-	}
-	public void returnList() {
-		System.out.println("List of books: " + list);
-	}
+
 	public void includeBookLast() {}
 	public void returnLenght() {}
 
