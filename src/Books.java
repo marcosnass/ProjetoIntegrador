@@ -1,5 +1,8 @@
 
+import java.util.ArrayList;
+
 public class Books {
+	ArrayList<Books> list = new ArrayList();
 	private String title;
 	private String isbn;
 	private String author;
@@ -60,7 +63,15 @@ public class Books {
 	+ this.getEdit() + " - Year Publishing: " + this.getYearPub();
 	}
 	
-	public void includeBookFirst() {}
+	public void addBook(Books book) {
+		list.add(book);
+	}
+	public void removeBook(Books book) {
+		list.remove(book);
+	}
+	public void returnList() {
+		System.out.println("List of books: " + list);
+	}
 	public void includeBookLast() {}
 	public void returnLenght() {}
 
