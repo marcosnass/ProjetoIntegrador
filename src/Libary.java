@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Libary
 {
     private String nome;
@@ -36,7 +38,7 @@ public class Libary
     public void setLocal(String local)
     { this.local = local; }
 
-    public void criaLivros(int capacidade)
+    public void createBooks(int capacidade)
     {
         this.capacidade = capacidade;
         books = new Books[capacidade];
@@ -44,13 +46,6 @@ public class Libary
    
     public void incluirLivro(Books book)
     {
-        /*for(int i=0;i<getCapacidade();i++)
-            if (livros[i]==null)
-            {
-                livros[i] = livro;
-                break;
-            }
-        */
         if (quantidade < capacidade)
         {
             quantidade++;
@@ -58,7 +53,27 @@ public class Libary
         }
     }
     
-    public Books obterLivro(String tit)
+    public void includeBookFirst(Books book)
+    {
+        
+        if (quantidade < capacidade)
+        {
+        	quantidade--;
+        	books[0] = null;
+        	if (books[0] == null) {
+        		quantidade++;
+        		books[0] = book;
+        	}
+        }
+    }
+    
+    public void removeLast(Books book)
+    {
+        books[quantidade -1] = null;
+        quantidade--;
+    }
+    
+    public Books getBookTitle(String tit)
     {
         for(int i=0;i<quantidade;i++)
             if (books[i] != null)
@@ -67,7 +82,7 @@ public class Libary
         return null;
     }
    
-    public Books getLivro(int posicao)
+    public Books getBook(int posicao)
     {
         if (posicao < quantidade)
             return books[posicao];
