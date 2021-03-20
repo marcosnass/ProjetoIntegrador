@@ -65,7 +65,6 @@ public class Main {
 	                  JOptionPane.showMessageDialog(null, lista.toString());
 	                  break;
 	              case 5:
-	            	  book = biblio.getBook(biblio.getQuantidade());
 	            	  for (int i=0; i<biblio.getQuantidade();i++) {
 	            		  book = biblio.getBook(i);
 	            		  if (i == biblio.getQuantidade() - 1) {
