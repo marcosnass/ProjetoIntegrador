@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 public class Main {
 
@@ -21,10 +25,11 @@ public class Main {
 	          "\n4. Listar Livros"+
 	          "\n5. Remover último livro:"+
 	          "\n6. Informações"+
-	          "\n7. Finalizar"+
+	          "\n7. Ordenar em ordem alfabética"+
+	          "\n8. Finalizar"+
 	          "\n\nSelecione a opção: ";
 
-	        while (opcao != 7)
+	        while (opcao != 8)
 	        {
 	            opcao = Integer.parseInt(JOptionPane.showInputDialog(null,opcoes,
 	                    "Biblioteca "+biblio.getNome(),JOptionPane.QUESTION_MESSAGE));
@@ -47,7 +52,7 @@ public class Main {
 	              case 3:
 	                  book = biblio.getBookTitle(JOptionPane.showInputDialog("Digite Título do Livro para pesquisar:"));
 	                  if (book != null)
-	                	  mostrarLivro(book,biblio.getNome());
+	                	  showBook(book,biblio.getNome());
 	                  else
 	                      JOptionPane.showMessageDialog(null, "Livro Não Localizado!");
 	                break;
@@ -80,11 +85,22 @@ public class Main {
 	                            "Existem até o momento\n"+biblio.getQuantidade()+
 	                            " livro(s) cadastrado(s)");
 	                    break;
+	              case 7:
+	            	  ArrayList<Books> list = new ArrayList<Books>();
+	      	        for (int i=0;i<biblio.getQuantidade();i++) {
+	      	        	book = biblio.getBook(i);
+	      	        	list.add(book);
+	      	        }
+	      	        Collections.sort(list, new ComparatorName());
+	      			for(Books b : list) {
+	      				showBook(b, biblio.getNome());
+	      	        }
+	      			break;
+	             
 	              
 	            }
 	        }
-	        System.out.println("# Fim do Programa #");
-	        System.out.println("bye...");
+	        JOptionPane.showMessageDialog(null, "End program");
 	    }
 	   
 	    static Books digitarLivro()
@@ -98,7 +114,7 @@ public class Main {
 	        return liv;
 	    }
 	       
-	    static void mostrarLivro(Books x,String bib)
+	    static void showBook(Books x,String bib)
 	    {
 	        String texto = "Livro:\n"+
 	        "\nTítulo: "+x.getTitulo()+
