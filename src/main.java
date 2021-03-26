@@ -35,17 +35,16 @@ public class Main {
 	            switch(opcao)
 	            {
 	              case 1:
+	            	  
 	                biblio.incluirLivro(digitarLivro());
 	                JOptionPane.showMessageDialog(null, "Livro Cadastrado!\nTotal: "+
 	                        biblio.getQuantidade()+" livro(s)");
 	                break;
 	              case 2:
-	            	  String op = JOptionPane.showInputDialog(JOptionPane.showInputDialog(null, "ATENÇÃO! O primeiro livro será excluido. Deseja continuar? pressione ENTER e depois [s/n]"));
-	            	  if (op.equals("s")) {
-	            		  biblio.includeBookFirst(digitarLivro());
-			                JOptionPane.showMessageDialog(null, "Livro Cadastrado!\nTotal: "+
-			                        biblio.getQuantidade()+" livro(s)");
-	            	  }
+            		  biblio.includeBookFirst(digitarLivro());
+		                JOptionPane.showMessageDialog(null, "Livro Cadastrado no início!\nTotal: "+
+		                        biblio.getQuantidade()+" livro(s)");
+		                
 			          break; 
 	              case 3:
 	                  book = biblio.getBookTitle(JOptionPane.showInputDialog("Digite Título do Livro para pesquisar:"));
@@ -84,18 +83,22 @@ public class Main {
 	                            " livro(s) cadastrado(s)");
 	                    break;
 	              case 7:
-	            	  ArrayList<Books> list = new ArrayList<Books>();
-	      	        for (int i=0;i<biblio.getQuantidade();i++) {
-	      	        	book = biblio.getBook(i);
-	      	        	list.add(book);
-	      	        }
-	      	        Collections.sort(list, new ComparatorName());
-	      			for(Books b : list) {
-	      				showBook(b, biblio.getNome());
-	      	        }
-	      			break;
-	             
-	              
+		            	ArrayList<Books> list = new ArrayList<Books>();
+		            	StringBuffer list1 = new StringBuffer();
+		      	        for (int i=0;i<biblio.getQuantidade();i++) {
+		      	        	book = biblio.getBook(i);
+		      	        	list.add(book);
+		      	        }
+		      	        Collections.sort(list, new ComparatorName());
+		      	        list1.append("Lista de Livros Ordenados:\n");
+					    int cont = 0;
+		      	        for(Books b : list) {
+							list1.append(b.getEdit()+" - "+
+		                              b.getTitulo()+" - "+b.getAutor()+" - "+
+		                              b.getYearPub()+" ano de publicação.\n");
+		      	        }
+		                JOptionPane.showMessageDialog(null, list1.toString());
+		      			break;
 	            }
 	        }
 	        JOptionPane.showMessageDialog(null, "End program");
@@ -122,7 +125,5 @@ public class Main {
 	        "\nEditora: "+x.getEdit();
 	        JOptionPane.showMessageDialog(null, texto, "Biblioteca: "+bib,
 	                JOptionPane.WARNING_MESSAGE);
-	    }
-
-	
+	    }	
 	}
