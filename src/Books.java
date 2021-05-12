@@ -1,12 +1,12 @@
-public class Books
+public class Books extends Libary
 {
     private String titulo;
     private String autor;
     private String ISBN;
     private String edit;
     private String yearPub;
-    public Books()
-    { }
+    
+    public Books(){}
 
     public Books(String ISBN, String titulo, String autor, String edit, String year)
     {
@@ -46,5 +46,13 @@ public class Books
 
     public void setYearPub(String year)
     { this.yearPub = year; }
+
+	@Override
+	public String toString() {
+		return "Books [titulo=" + titulo + ", autor=" + autor + ", ISBN=" + ISBN + ", edit=" + edit + ", yearPub="
+				+ yearPub;
+	}
    
+    
+    
 }
