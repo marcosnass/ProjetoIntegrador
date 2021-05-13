@@ -1,27 +1,31 @@
+import java.util.ArrayList;
+
 public class Books extends Libary
 {
+	
     private String title;
-    private String autor;
     private String ISBN;
     private String edit;
     private String yearPub;
+    private ArrayList<Author> author = new ArrayList<Author>();
     
     public Books(){}
 
-    public Books(String ISBN, String title, String autor, String edit, String year)
+    /*public Books(String ISBN, String title, ArrayList<Author> autor,  String edit, String year) 
     {
-        setAutor(autor);
+    	
+        this.author = autor;
         setISBN(ISBN);
         setTitulo(title);
         setEdit(edit);
         setYearPub(year);
-    }
-
+    }*/
+    
     public String getTitle()
     { return title; }
 
-    public String getAutor()
-    { return autor; }
+    public ArrayList<Author> getAutor(){
+    return author; }
 
     public String getISBN()
     { return ISBN; }
@@ -35,9 +39,12 @@ public class Books extends Libary
     public void setTitulo(String title)
     { this.title = title; }
 
-    public void setAutor(String autor)
-    { this.autor = autor; }
-
+    
+    /*public void setAutor(ArrayList<Author> autor)
+    { 
+    	this.author = autor; // UTILIZEI O CONSTRUOR DA CLASSE AUTOR AO INVÉS DOS MÉTODOS SET DA MESMA
+    }*/
+    
     public void setISBN(String ISBN)
     { this.ISBN = ISBN; }
 
@@ -47,12 +54,15 @@ public class Books extends Libary
     public void setYearPub(String year)
     { this.yearPub = year; }
 
+    public void addAuthor(Author a) {
+    	author.add(a);
+    }
+    
 	@Override
 	public String toString() {
-		return "Titulo = " + title + ", Autor = " + autor + ", ISBN = " + ISBN + ", Editora = " + edit + ", Ano de P/ = "
-				+ yearPub;
+		return "Titulo = " + title + "\n"
+				+ "ISBN = " + ISBN + "\n "
+				+ "Editora = " + edit + "\n"
+				+ "Ano de Pub/ = " + yearPub;
 	}
-   
-    
-    
 }

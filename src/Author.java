@@ -1,7 +1,8 @@
-public class Author extends Books {
+public class Author extends Books{
 	
-	String name;
-	String country;
+	private String name;
+	private String country;
+	
 	
 	public Author(){}
 	
@@ -10,7 +11,7 @@ public class Author extends Books {
 		setName(name);
 		setCountry(country);
 	}
-
+	
 	public String getName() {
 		return name;
 	}
@@ -26,9 +27,6 @@ public class Author extends Books {
 	
 	@Override
 	public String toString() {
-		return "Author [Nome = " + name + ", País de Origem = " + country + "]";
+		return "Nome = " + name + " - País de Origem = " + country + " \n ";
 	}
-	
-	
-	
 }

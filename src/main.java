@@ -9,7 +9,7 @@ public class Main {
 	        
 	        int opcao = 0;
 	        String opcoes =
-	          "\n\n***Opções*** "+
+	          "\n\n****OPÇÕES****"+
 	          "\n1. Cadastrar Livro"+
 	          "\n2. Cadastrar Livro no início"+
 	          "\n3. Cadastrar Livro no final"+
@@ -23,6 +23,7 @@ public class Main {
 	          "\n\nSelecione a opção: ";
 	        
 	        Books book;
+	        Author author = new Author();
 	        
 	        while (opcao != 10)
 	        {
@@ -155,13 +156,13 @@ public class Main {
 	            	  {
 		                  StringBuffer lista = new StringBuffer();
 		                  lista.append("Lista de Livros Cadastrados:\n");
+		                  
 		                  for (int i=0;i<size;i++)
 		                  {
-		                	  
 		                      book = biblio.getBook(i);
-		                      lista.append(book.getEdit()+" - "+
-		                              book.getTitle()+" - "+book.getAutor()+" - "+
-		                              book.getYearPub()+" ano de publicação.\n");
+		                      lista.append("-----------------------------------------------------\n"
+		                      		+ "Info do livro, " + book.getTitle() + "\n" + book + "\n"
+		                      		+ "Info Autor\n" + book.getAutor() + "\n");
 		                  }
 		                  lista.append("Total: "+ size +" livro(s)");
 		                  JOptionPane.showMessageDialog(null, lista.toString());
@@ -212,6 +213,7 @@ public class Main {
 		              {
 		            	  	size = biblio.size();
 		            	  
+		            	  	
 			            	ArrayList<Books> list = new ArrayList<Books>();
 			            	StringBuffer list1 = new StringBuffer();
 			      	        for (int i=0;i<size;i++) {
@@ -219,7 +221,7 @@ public class Main {
 			      	        	list.add(book);
 			      	        }
 			      	        Collections.sort(list, new ComparatorName());
-			      	        list1.append("Lista de Livros Ordenados:\n");
+			      	        list1.append("Lista de Livros Ordenados pelo título1:\n");
 			      	        for(Books b : list) {
 								list1.append(b.getEdit()+" - "+
 			                              b.getTitle()+" - "+b.getAutor()+" - "+
@@ -241,10 +243,37 @@ public class Main {
 	        Author author = new Author();
 	        
 	        liv.setTitulo(JOptionPane.showInputDialog("Título do Livro:"));
-	        liv.setAutor(JOptionPane.showInputDialog("Autor do Livro:"));
+	        int op = Integer.parseInt(JOptionPane.showInputDialog("Quantos autores o livro possui?"));
+	        if(op > 1) {
+	        	int cont = 1;
+	        	while(op != 0) {
+	        		String name;
+	        		String country; 
+	        		
+	        		name = JOptionPane.showInputDialog("Nome do " + cont + "º Autor:");
+	        		country = JOptionPane.showInputDialog("País de origem do " + cont + "º Autor:");
+	        		
+	        		author = new Author(name, country);
+		        	liv.addAuthor(author);
+		        	
+		        	cont++;
+	        		op--;
+	        	}
+	        }else {
+	        	String name;
+        		String country;
+        		
+        		name = JOptionPane.showInputDialog("Nome do Autor:");
+        		country = JOptionPane.showInputDialog("País de origem do Autor:");
+	        	
+	        	author = new Author(name, country);
+	        	liv.addAuthor(author);
+	        }
+	        
 	        liv.setISBN(JOptionPane.showInputDialog("Número ISBN do Livro:"));
 	        liv.setYearPub(JOptionPane.showInputDialog("Ano da publicação:"));
 	        liv.setEdit(JOptionPane.showInputDialog("Nome da Editora"));
+	       
 	        return liv;
 	    }
 	       

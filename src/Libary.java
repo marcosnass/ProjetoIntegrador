@@ -1,7 +1,5 @@
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
 public class Libary
 {
     ArrayList<Books> list = new ArrayList<Books>();
@@ -60,8 +58,6 @@ public class Libary
     			return book;
     	} 
     	return null;
-    	
+    
     }
-   
-  
 }
