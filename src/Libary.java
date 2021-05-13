@@ -56,7 +56,7 @@ public class Libary
     {
     
     	for(Books book : list) {
-    		if(tit.equals(book.getTitulo()))
+    		if(tit.equals(book.getTitle()))
     			return book;
     	} 
     	return null;

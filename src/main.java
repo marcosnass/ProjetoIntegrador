@@ -46,14 +46,14 @@ public class Main {
 	                		  for (int i=0;i<size;i++)
 			                  {
 			                      book = biblio.getBook(i);
-			                      if(book.getTitulo().equals(newBook.getTitulo())) {
+			                      if(book.getTitle().equals(newBook.getTitle())) {
 			                    	  answer = true;
 			                    	  break;
 			                      }
 			                  }
 	                		} 
                 		if(answer == true) {
-                			throw new ExcecaoDeLivroJaExistente(newBook.getTitulo());
+                			throw new ExcecaoDeLivroJaExistente(newBook.getTitle());
                 		}else {
                 			 biblio.includeBook(newBook);
 	                			JOptionPane.showMessageDialog(null, "Livro Cadastrado!!");
@@ -82,14 +82,14 @@ public class Main {
 	                		  for (int i=0;i<size;i++)
 			                  {
 			                      book = biblio.getBook(i);
-			                      if(book.getTitulo().equals(newBook.getTitulo())) {
+			                      if(book.getTitle().equals(newBook.getTitle())) {
 			                    	  answer = true;
 			                    	  break;
 			                      }
 			                  }
 	                		} 
               		if(answer == true) {
-              			throw new ExcecaoDeLivroJaExistente(newBook.getTitulo());
+              			throw new ExcecaoDeLivroJaExistente(newBook.getTitle());
               		}else {
               			 biblio.includeBookFirst(newBook, 0);
  		                JOptionPane.showMessageDialog(null, "Livro Cadastrado na primeira posição!!");
@@ -118,14 +118,14 @@ public class Main {
 	                		  for (int i=0;i<size;i++)
 			                  {
 			                      book = biblio.getBook(i);
-			                      if(book.getTitulo().equals(newBook.getTitulo())) {
+			                      if(book.getTitle().equals(newBook.getTitle())) {
 			                    	  answer = true;
 			                    	  break;
 			                      }
 			                  }
 	                		} 
               		if(answer == true) {
-              			throw new ExcecaoDeLivroJaExistente(newBook.getTitulo());
+              			throw new ExcecaoDeLivroJaExistente(newBook.getTitle());
               		}else {
               			 biblio.includeBookLast(newBook, size);
  		                JOptionPane.showMessageDialog(null, "Livro Cadastrado na última posição!!");
@@ -160,7 +160,7 @@ public class Main {
 		                	  
 		                      book = biblio.getBook(i);
 		                      lista.append(book.getEdit()+" - "+
-		                              book.getTitulo()+" - "+book.getAutor()+" - "+
+		                              book.getTitle()+" - "+book.getAutor()+" - "+
 		                              book.getYearPub()+" ano de publicação.\n");
 		                  }
 		                  lista.append("Total: "+ size +" livro(s)");
@@ -222,7 +222,7 @@ public class Main {
 			      	        list1.append("Lista de Livros Ordenados:\n");
 			      	        for(Books b : list) {
 								list1.append(b.getEdit()+" - "+
-			                              b.getTitulo()+" - "+b.getAutor()+" - "+
+			                              b.getTitle()+" - "+b.getAutor()+" - "+
 			                              b.getYearPub()+" ano de publicação.\n");
 			      	        }
 			                JOptionPane.showMessageDialog(null, list1.toString());
@@ -238,6 +238,7 @@ public class Main {
 	    static Books digitarLivro()
 	    {
 	        Books liv = new Books();
+	        Author author = new Author();
 	        
 	        liv.setTitulo(JOptionPane.showInputDialog("Título do Livro:"));
 	        liv.setAutor(JOptionPane.showInputDialog("Autor do Livro:"));
@@ -250,7 +251,7 @@ public class Main {
 	    static void showBook(Books x)
 	    {
 	        String texto = "Livro:\n"+
-	        "\nTítulo: "+x.getTitulo()+
+	        "\nTítulo: "+x.getTitle()+
 	        "\nAutor: "+x.getAutor()+
 	        "\nISBN: "+x.getISBN()+
 	        "\nAnoPubli: "+x.getYearPub()+

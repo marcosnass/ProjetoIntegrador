@@ -1,6 +1,6 @@
 public class Books extends Libary
 {
-    private String titulo;
+    private String title;
     private String autor;
     private String ISBN;
     private String edit;
@@ -8,17 +8,17 @@ public class Books extends Libary
     
     public Books(){}
 
-    public Books(String ISBN, String titulo, String autor, String edit, String year)
+    public Books(String ISBN, String title, String autor, String edit, String year)
     {
         setAutor(autor);
         setISBN(ISBN);
-        setTitulo(titulo);
+        setTitulo(title);
         setEdit(edit);
         setYearPub(year);
     }
 
-    public String getTitulo()
-    { return titulo; }
+    public String getTitle()
+    { return title; }
 
     public String getAutor()
     { return autor; }
@@ -32,8 +32,8 @@ public class Books extends Libary
     public String getYearPub()
     { return yearPub; }
 
-    public void setTitulo(String titulo)
-    { this.titulo = titulo; }
+    public void setTitulo(String title)
+    { this.title = title; }
 
     public void setAutor(String autor)
     { this.autor = autor; }
@@ -49,7 +49,7 @@ public class Books extends Libary
 
 	@Override
 	public String toString() {
-		return "Books [titulo=" + titulo + ", autor=" + autor + ", ISBN=" + ISBN + ", edit=" + edit + ", yearPub="
+		return "Titulo = " + title + ", Autor = " + autor + ", ISBN = " + ISBN + ", Editora = " + edit + ", Ano de P/ = "
 				+ yearPub;
 	}
    
