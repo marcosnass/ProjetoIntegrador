@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class Libary
 {
     ArrayList<Books> list = new ArrayList<Books>();
@@ -50,14 +52,42 @@ public class Libary
    
     }
     
-    public Books getBookTitle(String tit)
-    {
-    
-    	for(Books book : list) {
-    		if(tit.equals(book.getTitle()))
-    			return book;
-    	} 
-    	return null;
-    
+    public void getBookTitle(String tit) throws ExcecaoDeLivroNaoEncontrado
+    {	
+    	String[] wB;
+    	StringBuffer lista = new StringBuffer();
+        
+    	lista.append("Lista de livros encontrado com a palavra chave passada:\n");
+    	
+		for(Books book : list) { 
+	    wB = book.getTitle().split(" ");
+		for(String letter : wB) {
+			if(tit.equals(letter)) {
+				lista.append(
+		        "\nTítulo: "+book.getTitle()+
+		        "\nEditora: "+book.getEdit()+
+		        "\nAutor: "+book.getAutor());
+			}
+		}
+		}
+		try {
+		if( lista.length() == 56) {//o tamanho deve ser igaul a 56 devido ao primeiro append feito antes do for. Caso maior tem livro dentro da lista
+			throw new ExcecaoDeLivroNaoEncontrado();
+		}else {
+		JOptionPane.showMessageDialog(null, lista.toString());
+		}
+		}catch(ExcecaoDeLivroNaoEncontrado e) {
+			JOptionPane.showMessageDialog(null, e.toString());
+		}
     }
 }
+
+
+
+
+
+
+
+
+
+

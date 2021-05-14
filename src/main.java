@@ -9,11 +9,11 @@ public class Main {
 	        
 	        int opcao = 0;
 	        String opcoes =
-	          "\n\n****OPÇÕES****"+
+	          "!! --== NÃO USE LETRAS MAIÚSCULAS ==-- !!\n\n"+
 	          "\n1. Cadastrar Livro"+
 	          "\n2. Cadastrar Livro no início"+
 	          "\n3. Cadastrar Livro no final"+
-	          "\n4. Pesquisar Livro (título)"+
+	          "\n4. Pesquisar Livro (palavra chave)"+
 	          "\n5. Listar Livros"+
 	          "\n6. Remover último livro:"+
 	          "\n7. Remover pelo índice:"+
@@ -23,7 +23,6 @@ public class Main {
 	          "\n\nSelecione a opção: ";
 	        
 	        Books book;
-	        Author author = new Author();
 	        
 	        while (opcao != 10)
 	        {
@@ -138,18 +137,9 @@ public class Main {
 	                	}
 	            	  
 		          break; 
-	              case 4:
-		                  book = biblio.getBookTitle(JOptionPane.showInputDialog("Digite Título do Livro para pesquisar:"));
-		                  try {
-			                  if (book != null) {
-			                	  showBook(book);
-			                	  break;
-			                  } else {
-			                	  throw new ExcecaoDeLivroNaoEncontrado();
-			                  }
-		                  } catch(ExcecaoDeLivroNaoEncontrado e) {
-		                	  JOptionPane.showMessageDialog(null, e.toString());
-		                  }
+	              case 4:	
+	            	      JOptionPane.showMessageDialog(null, "!!!   INFORME SOMENTE UMA PALAVRA   !!!");
+		                  biblio.getBookTitle(JOptionPane.showInputDialog("Digite Título do Livro para pesquisar:"));
 			          break; 
 	              case 5:
 	            	  size = biblio.size();
@@ -221,11 +211,9 @@ public class Main {
 			      	        	list.add(book);
 			      	        }
 			      	        Collections.sort(list, new ComparatorName());
-			      	        list1.append("Lista de Livros Ordenados pelo título1:\n");
+			      	        list1.append("Lista de Livros Ordenados pelo título:\n");
 			      	        for(Books b : list) {
-								list1.append(b.getEdit()+" - "+
-			                              b.getTitle()+" - "+b.getAutor()+" - "+
-			                              b.getYearPub()+" ano de publicação.\n");
+								list1.append("\n" + b.getTitle() + "\n");
 			      	        }
 			                JOptionPane.showMessageDialog(null, list1.toString());
 			      			break;
